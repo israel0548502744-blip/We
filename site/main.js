@@ -148,7 +148,9 @@ const SITE_CONFIG = {
         node.allowFullscreen = true;
       } else {
         node = document.createElement("video");
+        node.className = "vertical";
         node.src = src;
+        if (btn.dataset.poster) node.poster = btn.dataset.poster;
         node.controls = true;
         node.autoplay = true;
         node.playsInline = true;

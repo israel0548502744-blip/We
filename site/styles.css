@@ -417,3 +417,24 @@ p { margin: 0 0 1em; }
   .hero-shade { background: linear-gradient(0deg, var(--ink) 42%, rgba(26,15,23,.55) 62%, rgba(26,15,23,.1) 85%, rgba(26,15,23,.45) 100%); }
   .hero-content { padding-top: 46vh; }
 }
+
+/* hero kicker + tagline */
+.hero-kicker { font-size: clamp(1.1rem, 2vw, 1.45rem); font-weight: 700; color: var(--pink-2); margin-bottom: 18px; }
+.hero-tagline { margin: 14px 0 0; font-size: clamp(1rem, 1.6vw, 1.15rem); color: rgba(255,255,255,.85); border-inline-start: 3px solid var(--pink); padding-inline-start: 12px; }
+.hero-tagline strong { color: #fff; }
+
+/* lecture moments */
+.moments { display: grid; grid-template-columns: 1.3fr 1fr 1fr; gap: 14px; margin-bottom: 34px; }
+.moments figure { margin: 0; position: relative; border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); aspect-ratio: 4 / 3; }
+.moments img { width: 100%; height: 100%; object-fit: cover; }
+.moments figcaption { position: absolute; inset: auto 0 0 0; padding: 36px 16px 12px; color: #fff; font-weight: 700; background: linear-gradient(0deg, rgba(26,15,23,.85), transparent); }
+.chapter-text .btn { margin-top: 6px; }
+
+/* vertical video in modal */
+.modal-content video.vertical { width: auto; height: min(86vh, 900px); aspect-ratio: 9 / 16; max-width: 92vw; }
+
+@media (max-width: 640px) {
+  .moments { grid-template-columns: 1fr; }
+}
+.moments figure { aspect-ratio: auto; height: 300px; }
+@media (max-width: 640px) { .moments figure { height: 240px; } }
