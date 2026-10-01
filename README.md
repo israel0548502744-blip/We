@@ -1,24 +1,15 @@
-# We
+# שמחה לביא – אתר הרצאות
 
-Small zero-dependency Node.js API.
+אתר סטטי בעברית (RTL) להזמנת הרצאות של שמחה לביא. ללא build.
 
-## Run
+- `site/` – האתר (`index.html`, `styles.css`, `main.js`, תמונות וסרטונים)
+- `aliyah/` – אנימציית "העלייה של האיכר"
 
-    npm start        # listens on :3000 (or $PORT)
-    npm test
+## הרצה מקומית
 
-## Endpoints
+    npx serve site      # או: cd site && python3 -m http.server
 
-- `GET /health`
-- `POST /claim-credit` with `{ "userId": "...", "code": "..." }`
-  returns `{ amount, balance }`; each code can be claimed once.
+## לפני עלייה לאוויר
 
-## Simcha Lavi speaker site (`site/`)
-
-Static, zero-build Hebrew (RTL) landing page for lecture bookings.
-
-    npx serve site      # or: cd site && python3 -m http.server
-
-Before going live, fill `SITE_CONFIG` at the top of `site/main.js`
-(WhatsApp number, email, TikTok / YouTube links) and set `data-video`
-on the "טעימה מההרצאה" button in `site/index.html`.
+מלאו את `SITE_CONFIG` בראש `site/main.js` (מספר וואטסאפ, מייל, קישורי טיקטוק ויוטיוב),
+והחליפו את הסרטון בכפתור "טעימה מההרצאה" ב-`site/index.html` (`data-video`) אם צריך.
