@@ -107,14 +107,22 @@ const SITE_CONFIG = {
     modal.hidden = false;
     document.body.style.overflow = "hidden";
     $(".modal-close", modal).focus();
+    // let the phone's back button/gesture close the modal
+    history.pushState({ modal: true }, "");
   };
-  const closeModal = () => {
+  const closeModal = (fromHistory) => {
+    if (modal.hidden) return;
+    if (fromHistory !== true && history.state && history.state.modal) {
+      history.back(); // popstate will call closeModal again
+      return;
+    }
     modal.hidden = true;
     modalContent.replaceChildren();
     document.body.style.overflow = "";
     if (lastFocus) lastFocus.focus();
   };
-  $$("[data-close]", modal).forEach((el) => el.addEventListener("click", closeModal));
+  $$("[data-close]", modal).forEach((el) => el.addEventListener("click", () => closeModal()));
+  window.addEventListener("popstate", () => closeModal(true));
   document.addEventListener("keydown", (e) => {
     if (e.key === "Escape" && !modal.hidden) closeModal();
   });
